@@ -9,12 +9,12 @@ contract Token is ERC20 {
   //add minter changed event
   event MinterChanged(address indexed from, address to);
 
-  constructor() public payable ERC20("Name", "Symbol") {
+  constructor() public payable ERC20("Decentralized Bank Currency", "DBC") {
     //asign initial minter
     minter = msg.sender;
   }
 
-  function passMinter(address dBank) public returns(bool) {
+  function passMinterRole(address dBank) public returns(bool) {
     require(msg.sender == minter, 'Error, Only minter can change role');
     minter = dBank;
 

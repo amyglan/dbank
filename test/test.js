@@ -60,7 +60,7 @@ contract('dBank', ([deployer, user]) => {
       })
 
       it('deposit time should > 0', async () => {
-        expect(Number(await dbank.depositStart(user))).to.be.above(0)
+        expect(Number(await dbank.timeOfDeposit(user))).to.be.above(0)
       })
 
       it('deposit status should eq true', async () => {
@@ -107,7 +107,7 @@ contract('dBank', ([deployer, user]) => {
       })
 
       it('depositer data should be reseted', async () => {
-        expect(Number(await dbank.depositStart(user))).to.eq(0)
+        expect(Number(await dbank.timeOfDeposit(user))).to.eq(0)
         expect(Number(await dbank.etherBalanceOf(user))).to.eq(0)
         expect(await dbank.isDeposited(user)).to.eq(false)
       })
